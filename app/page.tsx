@@ -1,101 +1,194 @@
-import Image from "next/image";
+import Sidebar from "../components/sidebar";
+import ProjectCard from "../components/ProjectCard";
+import EmploymentCard from "../components/EmploymentCard";
+import EducationCard from "../components/EducationCard";
 
-export default function Home() {
+export default function Page() {
+  const projects = [
+    {
+      title: "Productivity App (Personal Project)",
+      time: "JUNE 2024 — JULY 2024",
+      description: [
+        "Showcased my frontend skills by implementing a Budgeting and Todo List web app that persists the list items to a hosted cloud postgres database.",
+        "Demonstrated how easy pie chart and drag and drop functionality can be to implement without complex and bloated frontend libraries.",
+      ],
+      link: "https://productivity-xi.vercel.app",
+    },
+    {
+      title: "Jumbo Recipe Creator",
+      time: "SEPT 2023 — JANUARY 2024",
+      description: [
+        "Implemented a concept AI recipe creator application, using ChatGPT and DALL-E as generation.",
+        "As a team, we crafted the Design and UX for Jumbo Supermarkten.",
+        "Personally led the development of the final application, in which Jumbo took inspiration from.",
+      ],
+    },
+    {
+      title: "Markr. Tool",
+      time: "AUGUST 2022 — JANUARY 2023",
+      description: [
+        "Created a concept CMS and its paired marketing site for Stuurmen, a media agency.",
+        "Enabled them to create robust brand guidelines for all of their clients.",
+      ],
+      printMargin: true,
+    },
+    {
+      title: "Katale (Personal Project)",
+      time: "JUNE 2024 — JULY 2024",
+      description: [
+        "Created a Wordle clone that uses a different word in the Indonesian language everyday (Utilizing CRON on Vercel).",
+        "Made with Firebase and NextJS.",
+      ],
+      link: "https://katale-xi.vercel.app",
+    },
+    {
+      title: "Ship Service (Personal Project)",
+      time: "DEC 2024 — JAN 2025",
+      description: [
+        "Created a Cruise Ship port schedule web scraper to alert my parents once a day which ships will arrive the next day on their island (Sint Maarten).",
+        "Used iOS Shortcuts, and a custom hosted Fastify API.",
+      ],
+      link: "https://ship-service.vercel.app",
+    },
+    {
+      title: "Javascript, Python and Java tutoring",
+      time: "JUNE 2021 — CURRENT",
+      description: [
+        "Provided free tutoring for friends, family and acquaintances in JavaScript, Python, and Java.",
+        "Helped them understand core programming concepts, debug their code, and complete their projects successfully.",
+        "Conducted both one-on-one and group sessions, tailoring the content to the needs and skill levels of the participants.",
+        "Learned that I enjoy working for a team and will do a lot to get things done, going the extra mile, for the good of the teams.",
+      ],
+    },
+  ];
+
+  const employmentHistory = [
+    {
+      title: "Internship Frontend Developer",
+      company: "Jumbo Supermarkten",
+      location: "Veghel",
+      time: "FEBRUARY 2024 — JUNE 2024",
+      description: [
+        "Created a Dashboard to help UX Designers understand how well their Design System Kompas is being utilized by Developers and Designers at Jumbo throughout all the teams.",
+        "Used metrics like Adoption and Efficiency.",
+        "Technologies used: NuxtJS, tailwindcss.",
+      ],
+    },
+    {
+      title: "Internship Frontend Developer / UI Designer",
+      company: "Topical Meetings",
+      location: "Tilburg",
+      time: "FEBRUARY 2023 — JUNE 2023",
+      description: [
+        "Worked for a small startup trying to revolutionize the notetaking during business meetings.",
+        "Worked on the onboarding process, actual meeting creation and login flows.",
+        "UI elements are still in production as of September 2024.",
+        "Used technologies like React, MaterialUI and Laravel.",
+      ],
+    },
+  ];
+
+  const education = [
+    {
+      degree: "Associate Degree ICT",
+      institution: "Fontys University of Applied Sciences",
+      location: "Eindhoven",
+      time: "FEBRUARY 2023 — PRESENT",
+    },
+  ];
+
+  const name = "Daniel Vaswani";
+  const title = "Frontend Developer";
+  const location = {
+    city: "Venlo",
+    country: "Netherlands",
+  };
+  const contact = {
+    phone: "+31 (0) 685734532",
+    email: "vaswanidaniel@gmail.com",
+  };
+  const skills = [
+    { name: "TypeScript", level: 90 },
+    { name: "JavaScript", level: 95 },
+    { name: "React", level: 85 },
+    { name: "Node.js", level: 80 },
+    { name: "NextJS", level: 85 },
+    { name: "SQL", level: 75 },
+    { name: "MongoDB", level: 70 },
+    { name: "Python", level: 65 },
+    { name: "Git", level: 80 },
+    { name: "HTML & CSS", level: 90 },
+  ];
+  const profileImage = "/me.jpeg";
+
+  const sidebarProps = { name, title, location, contact, skills, profileImage };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex bg-white min-h-screen">
+      <Sidebar {...sidebarProps} />
+      <main className="flex-1 flex flex-col gap-3 p-6 ml-[230px]">
+        <section className="mb-1">
+          <h2 className="text-lg font-bold mb-3 pb-2 border-b border-gray-300">
+            Profile
+          </h2>
+          <p className="text-sm text-gray-700">
+            I am a Fullstack Typescript developer with more emphasis on
+            Frontend. I have studied at Fontys for several years, conducting
+            successful projects with clients and interned at TopicalMeetings and
+            Jumbo. In my free time I love to make side projects showcasing my
+            skills in JS/TS technologies like React/Vue on the Frontend, and a
+            simple serverless backend by either utilizing metaframeworks like
+            NextJS, Nuxt, or even using expressjs, with both SQL and NoSQL DBs.
+          </p>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <section className="mb-1">
+          <h2 className="text-lg font-bold mb-1 pb-2 border-b border-gray-300">
+            Employment History
+          </h2>
+          {employmentHistory.map((job, index) => (
+            <EmploymentCard
+              key={index}
+              title={job.title}
+              company={job.company}
+              location={job.location}
+              time={job.time}
+              description={job.description}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          ))}
+        </section>
+
+        <section className="mb-1">
+          <h2 className="text-lg font-bold mb-1 pb-2 border-b border-gray-300">
+            Education
+          </h2>
+          {education.map((edu, index) => (
+            <EducationCard
+              key={index}
+              degree={edu.degree}
+              institution={edu.institution}
+              location={edu.location}
+              time={edu.time}
+            />
+          ))}
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold mb-1 pb-2 border-b border-gray-300">
+            Projects
+          </h2>
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              time={project.time}
+              description={project.description}
+              printMargin={project.printMargin}
+              link={project.link}
+            />
+          ))}
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
