@@ -20,7 +20,7 @@ export default function EmploymentCard({
       </h3>
       <p className="text-xs text-gray-600 mb-1">{time}</p>
       {description.map((item) => (
-        <p className="text-sm text-gray-700 ml-6">{"‣ " + item}</p>
+        <p key={item} className="text-sm text-gray-700 ml-6">{"‣ " + item}</p>
       ))}
     </div>
   );
