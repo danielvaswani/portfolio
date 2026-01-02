@@ -2,6 +2,7 @@ import Sidebar from "../components/sidebar";
 import ProjectCard from "../components/ProjectCard";
 import EmploymentCard from "../components/EmploymentCard";
 import EducationCard from "../components/EducationCard";
+import { useState } from "react";
 
 export default function Page() {
   const projects = [
@@ -69,9 +70,9 @@ export default function Page() {
       location: "Veghel",
       time: "FEBRUARY 2024 — JUNE 2024",
       description: [
-        "Created a Dashboard to help UX Designers understand how well their Design System Kompas is being utilized by Developers and Designers at Jumbo throughout all the teams.",
-        "Used metrics like Adoption and Efficiency.",
-        "Technologies used: NuxtJS, tailwindcss.",
+        "Developed an internal dashboard that tracks metrics such as adoption and efficiency of Jumbo’s design system (Kompas) UI components across engineering and design teams.",
+        "Worked in close collaboration with Frontend enablement team, iterating quickly based on feedback.",
+        "Technologies used: Nuxt.js, TypeScript, tailwindcss.",
       ],
     },
     {
