@@ -2,7 +2,6 @@ import Sidebar from "../components/sidebar";
 import ProjectCard from "../components/ProjectCard";
 import EmploymentCard from "../components/EmploymentCard";
 import EducationCard from "../components/EducationCard";
-import { useState } from "react";
 
 export default function Page() {
   const projects = [
